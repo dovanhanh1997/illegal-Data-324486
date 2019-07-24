@@ -1,0 +1,14 @@
+#content {
+    width: 450px;
+    border: 2px solid navy;
+    margin: 0 auto;
+    padding: 0px 20px 20px;
+    height: 200px;
+    position: relative;
+}
+
+
+button,select,input{
+    float: right;
+    margin-bottom: .5em;
+}
