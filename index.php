@@ -78,7 +78,6 @@ $calculator = new Calculator();
         </select><br><br>
         <label>Second Operand</label>
         <input type="number" name="secondNumber"><br><br>
-
         <button type="submit">Calculator</button>
     </form>
 
@@ -88,7 +87,7 @@ $calculator = new Calculator();
         $secondNumber = $_POST['secondNumber'];
         $operator = $_POST['typeCalculator'];
         $calculator->setNumber($firstNumber, $secondNumber);
-        echo calculator();
+        echo $firstNumber.'+'.$secondNumber.'='.calculator();
 
     }
     ?>
