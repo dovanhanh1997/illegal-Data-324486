@@ -1,62 +1,6 @@
 <?php
-
-class Calculator
-{
-    public $firstNumber;
-    public $secondNumber;
-
-    public function setNumber($firstNumber, $secondNumber)
-    {
-        $this->firstNumber = $firstNumber;
-        $this->secondNumber = $secondNumber;
-    }
-
-    public function addCalculate()
-    {
-        return $this->firstNumber + $this->secondNumber;
-    }
-
-    public function minusCalculate()
-    {
-        return $this->firstNumber - $this->secondNumber;
-    }
-
-    public function multiCalculate()
-    {
-        return $this->firstNumber * $this->secondNumber;
-    }
-
-    public function splitCalculate()
-    {
-        return $this->firstNumber / $this->secondNumber;
-    }
-}
-
-;
-function calculator()
-{
-    global $operator, $calculator;
-    switch ($operator) {
-        case 'add':
-            return $calculator->addCalculate();
-            break;
-        case 'minus':
-            return $calculator->minusCalculate();
-            break;
-        case 'multi':
-            return $calculator->multiCalculate();
-            break;
-        case 'split':
-            return $calculator->splitCalculate();
-            break;
-    }
-}
-
-$calculator = new Calculator();
-
+include 'function.php'
 ?>
-
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -86,8 +30,15 @@ $calculator = new Calculator();
         $firstNumber = $_POST['firstNumber'];
         $secondNumber = $_POST['secondNumber'];
         $operator = $_POST['typeCalculator'];
-        $calculator->setNumber($firstNumber, $secondNumber);
-        echo $firstNumber.'+'.$secondNumber.'='.calculator();
+        try {
+            if (checkNum($firstNumber, $secondNumber)) {
+                $calculator->setNumber($firstNumber, $secondNumber);
+                echo $firstNumber . '+' . $secondNumber . '=' . calculator();
+            }
+        }
+        catch (Exception $e){
+            echo $e->getMessage();
+        }
 
     }
     ?>
